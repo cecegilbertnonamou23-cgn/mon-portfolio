@@ -1,0 +1,1273 @@
+:root {
+    /* Couleurs */
+    --black: #000000;
+    --white: #ffffff;
+    --gray-light: #f5f5f5;
+    --gray-medium: #eeeeee;
+
+    /* Espacements (On réduit ici pour répondre à ta demande) */
+    --section-padding: 60px;    /* Espace entre les grandes sections */
+    --item-gap: 20px;           /* Espace entre les éléments d'une liste */
+    --line-height-text: 1.5;    /* Interligne pour les paragraphes (plus serré) */
+    --line-height-title: 1.2;   /* Interligne pour les titres */
+    
+    /* Typographie */
+    --font-main: 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+    line-height: var(--line-height-title);
+    margin-bottom: 15px; /* Espace sous le titre réduit */
+    font-weight: 800;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #444; /* Un noir légèrement adouci pour la lecture */
+}
+
+section {
+    padding: var(--section-padding) 20px; /* Utilise la variable définie plus haut */
+}
+
+/* Reset de base pour supprimer les marges invisibles du navigateur */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: var(--line-height-text);
+    color: var(--black);
+    background-color: var(--white);
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* 1. VARIABLES - On définit les couleurs du CDC pour les réutiliser facilement */
+:root {
+    --fond-principal: #FFFFFF;    /* Blanc pur [cite: 73] */
+    --fond-secondaire: #F9F9F9;   /* Gris clair pour le blog [cite: 73] */
+    --texte-principal: #000000;   /* Noir pur [cite: 73] */
+    --texte-secondaire: #555555;  /* Gris foncé [cite: 73] */
+    --bordure-legere: #EEEEEE;    /* Pour les lignes de séparation [cite: 104] */
+}
+
+/* 2. RESET & BASE - On nettoie les marges par défaut des navigateurs */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Police demandée  */
+    background-color: var(--fond-principal);
+    color: var(--texte-principal);
+    line-height: 1.6; /* Confort de lecture [cite: 83] */
+    font-size: 18px;  /* Taille corps de texte [cite: 83] */
+}
+
+/* 3. TYPOGRAPHIE - Respect de la hiérarchie visuelle du CDC */
+h1 {
+    font-size: 64px;          /* Entre 48px et 64px  */
+    font-weight: 800;         /* Extra-Bold  */
+    letter-spacing: -0.02em;  /* Espacement serré  */
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 32px;          /* Taille section [cite: 82] */
+    font-weight: 700;         /* Bold [cite: 82] */
+    text-transform: uppercase; /* Tout en majuscules [cite: 82] */
+    margin-bottom: 40px;
+}
+
+/* 4. LAYOUT - Espacement entre les sections */
+section {
+    padding: 60px 10%;       /* Minimum 120px de marge  */
+}
+
+/* Style rapide pour le header "Sticky" [cite: 115] */
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.8); /* Opacité 80% [cite: 131] */
+    backdrop-filter: blur(10px);          /* Effet de flou [cite: 131] */
+    padding: 20px 10%;
+    border-bottom: 1px solid var(--bordure-legere);
+    z-index: 1000;
+}
+/* DESIGN DU HEADER [cite: 131] */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px; /* Réduit de 30px à 15px */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px; /* Espace entre les liens du menu */
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: opacity 0.3s;
+}
+
+/* LOGO / MONOGRAMME [cite: 86, 88] */
+.logo a {
+    font-size: 24px;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--texte-principal);
+}
+
+.logo span {
+    font-weight: 200;
+    margin: 0 5px;
+    color: #ccc; /* Le filet vertical de 1px [cite: 88] */
+}
+
+/* LISTE DE LIENS [cite: 84] */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--texte-principal);
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    text-decoration: underline; /* Soulignement au survol uniquement [cite: 84] */
+}
+
+/* BOUTON CV (Style architectural)  */
+.btn-cv {
+    text-decoration: none;
+    color: var(--texte-principal);
+    border: 2px solid var(--texte-principal);
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-cv:hover {
+    background-color: var(--texte-principal);
+    color: var(--fond-principal); /* Inversion au survol [cite: 99] */
+}
+/* DESIGN DE LA SECTION HERO */
+.hero {
+    display: flex;
+    align-items: center; /* Aligne verticalement le texte et l'image */
+    justify-content: space-between;
+    gap: 50px;
+    min-height: 90vh; /* Prend presque toute la hauteur de l'écran */
+}
+
+.hero-content {
+    flex: 1; /* Prend 50% de l'espace */
+}
+
+.welcome-text {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: var(--texte-secondaire);
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* BOUTON PRIMAIRE (Fond noir) */
+.btn-primary {
+    background-color: var(--texte-principal);
+    color: var(--fond-principal);
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    opacity: 0.8;
+}
+
+/* BOUTON SECONDAIRE (Bordure uniquement) */
+.btn-secondary {
+    border: 2px solid var(--texte-principal);
+    color: var(--texte-principal);
+    padding: 13px 30px; /* Un peu moins à cause de la bordure de 2px */
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--texte-principal);
+    color: var(--fond-principal);
+}
+
+/* EMPLACEMENT PHOTO */
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.visual-placeholder {
+    width: 400px;
+    height: 400px;
+    background-color: var(--fond-secondaire);
+    border: 1px solid var(--bordure-legere);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%); /* Force le Noir & Blanc si tu mets une image */
+}
+/* DESIGN DE LA TIMELINE */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* La ligne verticale centrale */
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 60px;
+    padding-left: 80px; /* Espace pour la ligne et le point */
+}
+
+/* Le point (bullet) noir */
+.timeline-dot {
+    position: absolute;
+    left: 22px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--texte-principal);
+    border-radius: 50%;
+    transition: transform 0.3s ease; /* Pour l'interactivité */
+    z-index: 2;
+}
+
+/* Interactivité : le point s'agrandit au survol de l'étape */
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.5);
+}
+
+/* Contenu textuel */
+.timeline-date {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.timeline-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.timeline-location {
+    font-style: italic;
+    color: var(--texte-secondaire);
+    margin-bottom: 15px;
+}
+
+.timeline-content ul {
+    list-style: square;
+    padding-left: 20px;
+    color: var(--texte-secondaire);
+}
+/* COMPÉTENCES (Badges) */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap; /* Les badges passent à la ligne si besoin */
+    gap: 15px;
+    margin-bottom: 80px;
+}
+
+.skill-badge {
+    background-color: var(--fond-secondaire);
+    color: var(--texte-principal);
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid var(--bordure-legere);
+    /* Pas de border-radius pour le look architectural */
+}
+
+/* GRILLE DES PASSIONS */
+.passions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grille responsive */
+    gap: 30px;
+}
+
+.passion-card {
+    padding: 30px;
+    border: 1px solid var(--bordure-legere);
+    transition: 0.3s ease;
+}
+
+.passion-card:hover {
+    border-color: var(--texte-principal); /* Accentuation au survol */
+}
+
+.passion-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.passion-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.passion-card p {
+    font-size: 16px;
+    color: var(--texte-secondaire);
+}
+/* DESIGN DU PORTFOLIO */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* 3 colonnes sur desktop */
+    gap: 40px;
+}
+
+.project-card {
+    cursor: pointer;
+}
+
+.project-image {
+    position: relative;
+    aspect-ratio: 16 / 9; /* Format demandé par le CDC */
+    background-color: var(--fond-secondaire);
+    overflow: hidden;
+    border: 1px solid var(--bordure-legere);
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--texte-secondaire);
+    font-weight: 500;
+}
+
+/* L'overlay qui s'affiche au survol */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Assombrissement */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    opacity: 0; /* Invisible par défaut */
+    transition: opacity 0.3s ease;
+    text-align: center;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1; /* Devient visible au survol */
+}
+
+.project-overlay p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.view-details {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 1px solid white;
+}
+
+/* Infos sous l'image */
+.project-info {
+    padding: 20px 0;
+}
+
+.project-info h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.project-info p {
+    font-size: 14px;
+    color: var(--texte-secondaire);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+/* DESIGN DE LA SECTION CONTACT */
+/* DESIGN DE LA SECTION CONTACT RESTRUCTURÉ */
+#contact {
+    padding: 80px 10%;
+    background-color: var(--white);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr; /* Colonne gauche un peu plus étroite */
+    gap: 60px; /* Espace réduit de moitié (était à 130px) */
+    align-items: start;
+}
+
+/* CADRE ROUGE : Sidebar */
+.contact-sidebar h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.contact-sidebar p {
+    font-size: 18px;
+    color: var(--texte-secondaire);
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.contact-details a {
+    text-decoration: none;
+    color: var(--texte-principal);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.contact-socials {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-socials a {
+    color: var(--texte-principal);
+    transition: 0.3s;
+}
+
+.contact-socials a:hover {
+    transform: translateY(-3px);
+}
+
+/* CADRE BLEU : Formulaire Style Papier */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Interlignes de formulaire réduits */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.form-group input, 
+.form-group textarea {
+    border: none;
+    border-bottom: 2px solid var(--texte-principal);
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    background: transparent;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-bottom-color: #888; /* Changement subtil au clic */
+}
+
+.contact-form .btn-primary {
+    align-self: flex-start;
+    background: var(--texte-principal);
+    color: var(--white);
+    padding: 15px 40px;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.contact-form .btn-primary:hover {
+    background: #333;
+}
+
+/* Responsive : On empile sur mobile */
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+/* DESIGN DU FOOTER */
+footer {
+    background-color: var(--fond-principal);
+    padding: 80px 10% 40px 10%;
+    border-top: 1px solid var(--bordure-legere); /* Ligne fine de séparation */
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-logo a {
+    font-size: 40px; /* Version agrandie comme demandé */
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--texte-principal);
+}
+
+.footer-links {
+    display: flex;
+    gap: 100px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-column h4 {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: var(--texte-secondaire);
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.footer-column a:hover {
+    color: var(--texte-principal);
+}
+
+.footer-bottom {
+    width: 100%;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--bordure-legere);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--texte-secondaire);
+    font-size: 14px;
+}
+
+.back-to-top {
+    text-decoration: none;
+    color: var(--texte-principal);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+/* --- RESPONSIVE DESIGN --- */
+
+/* Pour les tablettes et mobiles (moins de 992px) */
+@media (max-width: 992px) {
+    section {
+        padding: 80px 5%; /* On réduit les marges sur les côtés */
+    }
+
+    .hero {
+        flex-direction: column-reverse; /* L'image passe au-dessus du texte */
+        text-align: center;
+        gap: 30px;
+    }
+
+    h1 {
+        font-size: 42px; /* On réduit la taille du gros titre */
+    }
+
+    .hero-btns {
+        justify-content: center;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr; /* Le formulaire passe sous le texte */
+        gap: 40px;
+    }
+}
+
+/* Pour les petits mobiles (moins de 600px) */
+@media (max-width: 600px) {
+    .nav-links {
+        display: none; /* On cache le menu pour l'instant (on fera un menu burger plus tard si tu veux) */
+    }
+
+    .skills-container {
+        justify-content: center;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Une seule colonne de projet */
+    }
+
+    .timeline::before {
+        left: 11px; /* On déplace la ligne de la timeline */
+    }
+
+    .timeline-item {
+        padding-left: 40px;
+    }
+
+    .timeline-dot {
+        left: 2px;
+    }
+}
+/* DESIGN DE LA MODALE */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9); /* Fond noir semi-transparent */
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--fond-principal);
+    margin: 5% auto;
+    padding: 40px;
+    width: 80%;
+    max-width: 900px;
+    position: relative;
+    border: 1px solid var(--texte-principal);
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: 200;
+}
+
+/* Style à l'intérieur de la modale */
+.modal-body h2 { margin-bottom: 20px; }
+.modal-section { margin-top: 30px; }
+.modal-section h4 { text-transform: uppercase; font-size: 14px; color: var(--texte-secondaire); }
+/* DESIGN DE L'APERÇU BLOG */
+.blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 60px;
+}
+
+.btn-text {
+    text-decoration: none;
+    color: var(--texte-principal);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--texte-principal);
+}
+
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.blog-item {
+    border-bottom: 1px solid var(--bordure-legere);
+    padding-bottom: 30px;
+    transition: 0.3s;
+}
+
+.blog-item:hover {
+    border-bottom-color: var(--texte-principal);
+}
+
+.blog-date {
+    font-size: 14px;
+    color: var(--texte-secondaire);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.blog-item h3 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.blog-item h3 a {
+    text-decoration: none;
+    color: var(--texte-principal);
+}
+
+.blog-item p {
+    color: var(--texte-secondaire);
+    max-width: 700px;
+}
+svg.lucide {
+    stroke-width: 2px; /* Épaisseur du trait selon le CDC */
+    width: 24px;
+    height: 24px;
+    color: currentColor;
+}
+/* ANIMATIONS D'ENTRÉE */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: var(--texte-principal);
+    z-index: 2001; /* Au-dessus du header */
+}
+
+
+.visual-container {
+    position: relative;
+    width: 400px;
+    height: 500px; /* Format portrait élégant */
+    overflow: hidden;
+    border: 1px solid var(--bordure-legere);
+}
+
+.hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(110%); /* Look N&B pro */
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s;
+}
+
+.visual-container:hover .hero-photo {
+    transform: scale(1.05); /* Zoom très léger */
+    filter: grayscale(0%) contrast(100%); /* La couleur revient doucement au survol */
+}
+
+/* Petit effet de cadre au-dessus */
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 20px solid transparent;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.visual-container:hover .photo-overlay {
+    border: 10px solid rgba(255,255,255,0.2);
+}
+
+
+
+/* Animation des icônes au survol */
+.passion-card i {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s;
+    display: inline-block;
+    color: #000;
+}
+
+.passion-card:hover i {
+    transform: scale(1.3) rotate(12deg);
+    color: #555;
+}
+
+/* Style des barres de compétences avec animation */
+.skill-bar {
+    height: 4px;
+    background: #eeeeee;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.skill-progress {
+    height: 100%;
+    background: #000;
+    width: 0; /* Important : part de 0 pour l'animation JS */
+    transition: width 1.5s ease-in-out;
+}
+
+/* On force l'affichage dès que la classe 'active' est ajoutée par le JS */
+.reveal.active .skill-progress {
+   
+}
+
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    padding-left: 30px;
+    border-left: 2px solid #eee;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -37px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: #000;
+    border-radius: 50%;
+}
+
+.timeline-date {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding: 0;
+    color: #444;
+}
+
+.timeline-content li {
+    margin-bottom: 5px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 50px auto;
+    padding-left: 40px;
+    border-left: 3px solid #f0f0f0;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -48px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background: #000;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px #f0f0f0;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #888;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-content li {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 4px;
+}
+
+.timeline-content strong {
+    color: #000;
+}
+
+.passions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.passion-card {
+    background: #fdfdfd;
+    padding: 30px;
+    border: 1px solid #eee;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.passion-card:hover {
+    background: #000;
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+.passion-card i {
+    margin-bottom: 15px;
+    width: 32px;
+    height: 32px;
+}
+
+.passion-card:hover i {
+    color: #fff;
+}
+
+
+
+/* Style de base des liens de navigation */
+.nav-links li a {
+    text-decoration: none;
+    color: #000; /* Texte noir */
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease; /* Animation fluide pour le changement de fond */
+    display: inline-block;
+}
+
+/* L'EFFET DEMANDÉ : Fond noir au survol */
+.nav-links li a:hover {
+    background-color: #000; /* Le fond devient noir */
+    color: #fff;            /* Le texte devient blanc */
+}
+
+/* Style du bouton CV pour qu'il reste distinct */
+.nav-action .btn-cv {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 10px 22px;
+    border: 2px solid #000;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+/* Effet inverse pour le bouton CV au survol */
+.nav-action .btn-cv:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 50px; /* Ajuste cette valeur selon tes préférences */
+    width: auto;  /* Garde les proportions de ton image */
+    display: block;
+    transition: transform 0.3s ease;
+    /* Optionnel : si ton logo a un fond blanc et que tu veux qu'il se fonde dans le header */
+    mix-blend-mode: multiply; 
+}
+
+/* Ajustement du header pour que tout reste aligné */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px ;
+}
+
+
+
+
+/* Animation d'entrée du logo au chargement de la page */
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.logo-img {
+    height: 55px; /* Taille ajustée pour la visibilité */
+    width: auto;
+    border-radius: 15px; /* Bords bien arrondis comme demandé */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    animation: slideDown 0.8s ease-out; /* Surprise 1 : apparition élégante */
+    cursor: pointer;
+}
+
+/* L'ANIMATION DE SURPRISE AU SURVOL */
+.logo-img:hover {
+    transform: scale(1.1) rotate(-3deg); /* Surprise 2 : inclinaison dynamique */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    filter: brightness(1.1); /* Surprise 3 : petit éclat lumineux */
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Petit effet de "clic" */
+.logo-img:active {
+    transform: scale(0.95);
+}
+
+
+
+/* Grille identique aux passions */
+.projets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Carte de projet stylisée */
+.projet-card {
+    background: #ffffff;
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 15px; /* Harmonisé avec ton logo-img */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.projet-icon {
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.projet-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: #111;
+}
+
+.projet-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Petit badge de catégorie */
+.tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* Animation au survol : fond noir progressif */
+.projet-card:hover {
+    transform: translateY(-10px);
+    background: #000;
+    border-color: #000;
+}
+
+.projet-card:hover h3, 
+.projet-card:hover p, 
+.projet-card:hover .projet-icon,
+.projet-card:hover .tag {
+    color: #fff;
+}
+
+
+
+.skills-minimal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.skill-group h3 {
+    font-size: 1.1rem;
+    border-left: 3px solid #000;
+    padding-left: 15px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.skill-badge-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.skill-badge-item span {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Les points de niveau */
+.level-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #e0e0e0; /* Couleur des points vides */
+    transition: background 0.5s ease;
+}
+
+.dot.active {
+    background: #000; /* Couleur des points remplis */
+}
+
+
+#contact {
+    text-align: center;
+    padding: 80px 5%;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    padding: 15px;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+/* L'effet fond noir au survol pour rester raccord */
+.contact-item:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social-links a {
+    color: #000;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    color: #555; /* Gris sombre pour le style */
+}
+
+.contact-intro {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #666;
+}
+

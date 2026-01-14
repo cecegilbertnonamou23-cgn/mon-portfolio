@@ -1,0 +1,23 @@
+# Configuration du moteur de stockage (ton GitHub)
+backend:
+  name: git-gateway
+  branch: main # Vérifie que ta branche principale s'appelle bien main
+
+# Où les images envoyées par le CMS seront stockées
+media_folder: "assets/images/blog"
+public_folder: "/assets/images/blog"
+
+# Définition de ta collection d'articles
+collections:
+  - name: "blog"
+    label: "Articles de Blog"
+    folder: "blog/posts" # C'est ici que les fichiers .md seront créés
+    create: true # Autorise la création de nouveaux articles
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Titre de l'article", name: "title", widget: "string"}
+      - {label: "Date de publication", name: "date", widget: "datetime"}
+      - {label: "Catégorie", name: "category", widget: "select", options: ["Finance", "Audit", "Digital", "Parcours"]}
+      - {label: "Image de couverture", name: "thumbnail", widget: "image"}
+      - {label: "Résumé court", name: "description", widget: "text"}
+      - {label: "Corps de l'article", name: "body", widget: "markdown"}
