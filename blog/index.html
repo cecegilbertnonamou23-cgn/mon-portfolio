@@ -38,20 +38,34 @@
     </section>
 
     <section id="blog-list">
-        <div class="blog-grid">
-            <article class="blog-item">
-                <span class="blog-date">12 Jan. 2026</span>
-                <h3>L'art du minimalisme dans le code</h3>
-                <p>Pourquoi "moins" signifie souvent "mieux" pour un site...</p>
-                <a href="article-1.html" class="read-link">Lire la suite →</a>
-            </article>
-            <article class="blog-item">
-                <span class="blog-date">05 Jan. 2026</span>
-                <h3>Ma veille technologique</h3>
-                <p>Les outils que j'utilise pour rester à jour.</p>
-                <a href="article-2.html" class="read-link">Lire la suite →</a>
-            </article>
-        </div>
+<div id="blog-posts-container">
+    </div>
+
+<script>
+  // Ce script va chercher la liste des fichiers dans ton dossier posts
+  async function loadPosts() {
+    const container = document.getElementById('blog-posts-container');
+    
+    // On demande à GitHub la liste des fichiers dans blog/posts
+    // Remplace TON_USER et TON_REPO par tes vrais identifiants
+    const response = await fetch('https://api.github.com/repos/TON_USER/TON_REPO/contents/blog/posts');
+    const files = await response.json();
+
+    for (let file of files) {
+      if (file.name.endsWith('.md')) {
+        // Pour chaque fichier trouvé, on crée un petit aperçu sur ton site
+        const postCard = document.createElement('div');
+        postCard.className = 'post-card';
+        postCard.innerHTML = `
+          <h3>${file.name.replace('.md', '')}</h3>
+          <a href="${file.html_url}">Lire l'article</a>
+        `;
+        container.appendChild(postCard);
+      }
+    }
+  }
+  loadPosts();
+</script>
     </section>
 
     <section id="contact">
@@ -126,6 +140,7 @@
 <script>lucide.createIcons();</script>
 </body>
 </html>
+
 
 
 
