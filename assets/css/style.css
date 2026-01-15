@@ -1303,22 +1303,22 @@ svg.lucide {
 /* Style pour la fenêtre de lecture (Modale) */
 .modal-article {
     display: none; 
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9);
-    z-index: 1000;
+    position: fixed; /* Reste fixé à l'écran */
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: white; /* Fond blanc pour la lecture */
+    z-index: 9999; /* Passe par-dessus tout le reste */
     overflow-y: auto;
-    padding: 50px 20px;
+    padding: 20px;
 }
 
 .modal-content {
-    background: white;
-    color: black;
     max-width: 800px;
-    margin: 0 auto;
-    padding: 40px;
-    border-radius: 8px;
-    position: relative;
+    margin: 40px auto;
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
 }
 
 .close-modal {
@@ -1332,4 +1332,5 @@ svg.lucide {
     max-width: 100%;
     height: auto;
 }
+
 
