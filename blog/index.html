@@ -41,30 +41,51 @@
 <div id="blog-posts-container">
     </div>
 
-<script>
-  // Ce script va chercher la liste des fichiers dans ton dossier posts
-  async function loadPosts() {
-    const container = document.getElementById('blog-posts-container');
-    
-    // On demande à GitHub la liste des fichiers dans blog/posts
-    // Remplace TON_USER et TON_REPO par tes vrais identifiants
-    const response = await fetch('https://api.github.com/repos/TON_USER/TON_REPO/contents/blog/posts');
-    const files = await response.json();
+<div id="blog-grid" class="blog-grid">
+    <p id="loading-message">Chargement des articles du jardin...</p>
+</div>
 
-    for (let file of files) {
-      if (file.name.endsWith('.md')) {
-        // Pour chaque fichier trouvé, on crée un petit aperçu sur ton site
-        const postCard = document.createElement('div');
-        postCard.className = 'post-card';
-        postCard.innerHTML = `
-          <h3>${file.name.replace('.md', '')}</h3>
-          <a href="${file.html_url}">Lire l'article</a>
-        `;
-        container.appendChild(postCard);
-      }
+<script>
+async function afficherArticles() {
+    const container = document.getElementById('blog-grid');
+    // Voici tes identifiants mis à jour
+    const user = "cecegilbertnonamou23-cgn"; 
+    const repo = "mon-portfolio";
+
+    try {
+        // Connexion à l'API GitHub pour lire le dossier des articles
+        const response = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/blog/posts`);
+        const files = await response.json();
+
+        if (container) {
+            container.innerHTML = ''; // On vide le message de chargement
+
+            for (let file of files) {
+                if (file.name.endsWith('.md')) {
+                    const card = document.createElement('div');
+                    card.className = 'project-card reveal active';
+                    
+                    // Transformation du nom du fichier en titre lisible
+                    const titrePropre = file.name.replace('.md', '').replace(/-/g, ' ');
+
+                    card.innerHTML = `
+                        <div class="project-info">
+                            <h3>${titrePropre}</h3>
+                            <p>Article de mon jardin numérique.</p>
+                            <a href="${file.html_url}" target="_blank" class="btn-link">Lire l'article sur GitHub →</a>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                }
+            }
+        }
+    } catch (error) {
+        console.error("Erreur :", error);
+        if (container) container.innerHTML = "<p>Aucun article trouvé pour le moment.</p>";
     }
-  }
-  loadPosts();
+}
+
+document.addEventListener('DOMContentLoaded', afficherArticles);
 </script>
     </section>
 
@@ -140,6 +161,7 @@
 <script>lucide.createIcons();</script>
 </body>
 </html>
+
 
 
 
