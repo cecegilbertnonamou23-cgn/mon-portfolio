@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
 </head>
 
 <body>
@@ -78,15 +81,17 @@ async function lireArticle(url) {
     const response = await fetch(url);
     const texteMarkdown = await response.text();
     
-    // On affiche la fenêtre
-    document.getElementById('articleModal').style.display = 'block';
+    // On utilise 'marked.parse' pour transformer le texte en HTML
+    const contenuHtml = marked.parse(texteMarkdown);
     
-    // On nettoie un peu le texte brut (en attendant un vrai convertisseur)
-    document.getElementById('article-full-content').innerHTML = `
-        <div style="white-space: pre-wrap; font-family: 'Inter', sans-serif; line-height: 1.6;">
-            ${texteMarkdown}
-        </div>
-    `;
+    const modal = document.getElementById('articleModal');
+    const display = document.getElementById('article-full-content');
+    
+    display.innerHTML = contenuHtml;
+    modal.style.display = 'block';
+    
+    // On remonte automatiquement en haut de la fenêtre pour lire
+    modal.scrollTo(0, 0);
 }
 
 function fermerArticle() {
@@ -168,6 +173,7 @@ document.addEventListener('DOMContentLoaded', afficherArticles);
 <script>lucide.createIcons();</script>
 </body>
 </html>
+
 
 
 
