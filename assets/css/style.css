@@ -651,29 +651,53 @@ footer {
 }
 
 /* Pour les petits mobiles (moins de 600px) */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    /* Le bouton burger */
+    .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--black);
+        z-index: 1001;
+    }
+
+    /* On modifie le comportement des liens */
     .nav-links {
-        display: none; /* On cache le menu pour l'instant (on fera un menu burger plus tard si tu veux) */
+        display: none; /* Caché par défaut */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Juste en dessous du header */
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        border-bottom: 2px solid var(--black);
+        gap: 20px;
+        text-align: center;
     }
 
-    .skills-container {
-        justify-content: center;
+    /* Classe qui sera ajoutée par le JavaScript */
+    .nav-links.active {
+        display: flex;
+        animation: slideIn 0.3s ease-out;
     }
 
-    .portfolio-grid {
-        grid-template-columns: 1fr; /* Une seule colonne de projet */
+    /* Masquer le bouton CV sur petit mobile si besoin ou l'ajuster */
+    .nav-action {
+        display: none; 
     }
+}
 
-    .timeline::before {
-        left: 11px; /* On déplace la ligne de la timeline */
-    }
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-    .timeline-item {
-        padding-left: 40px;
-    }
-
-    .timeline-dot {
-        left: 2px;
+/* On s'assure que le bouton burger est caché sur PC */
+@media (min-width: 769px) {
+    .mobile-menu-btn {
+        display: none;
     }
 }
 /* DESIGN DE LA MODALE */
@@ -1270,6 +1294,4 @@ svg.lucide {
     margin: 0 auto 30px;
     color: #666;
 }
-
-
 
