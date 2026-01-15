@@ -1271,3 +1271,16 @@ svg.lucide {
     color: #666;
 }
 
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: flex !important; /* Force l'affichage pour tester */
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        left: 0;
+    }
+}
+
