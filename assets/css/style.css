@@ -1046,7 +1046,7 @@ svg.lucide {
     text-decoration: none;
 }
 
-.logo-img {
+.LOGO-img {
     height: 50px; /* Ajuste cette valeur selon tes préférences */
     width: auto;  /* Garde les proportions de ton image */
     display: block;
@@ -1072,7 +1072,7 @@ svg.lucide {
     to { transform: translateY(0); opacity: 1; }
 }
 
-.logo-img {
+.LOGO-img {
     height: 55px; /* Taille ajustée pour la visibilité */
     width: auto;
     border-radius: 15px; /* Bords bien arrondis comme demandé */
@@ -1270,9 +1270,10 @@ svg.lucide {
     margin: 0 auto 30px;
     color: #666;
 }
-.footer-container .logo-img img {
+.footer-container .LOGO-img img {
     max-width: 150px;
     height: auto;
     margin-bottom: 20px;
 }
+
 
