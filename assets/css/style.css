@@ -1270,4 +1270,9 @@ svg.lucide {
     margin: 0 auto 30px;
     color: #666;
 }
+.footer-container .logo-img img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
 
