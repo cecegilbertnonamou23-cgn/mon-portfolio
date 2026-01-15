@@ -1,23 +1,20 @@
-# Configuration du moteur de stockage (ton GitHub)
 backend:
-  name: git-gateway
-  branch: main # Vérifie que ta branche principale s'appelle bien main
+  name: github
+  repo: TON_PSEUDO_GITHUB/NOM_DE_TON_DEPOT # Exemple: Gilbert/Moi-Numerique
+  branch: main # Ou master selon ton GitHub
 
-# Où les images envoyées par le CMS seront stockées
-media_folder: "assets/images/blog"
+media_folder: "assets/images/blog" # Où seront stockées tes images d'articles
 public_folder: "/assets/images/blog"
 
-# Définition de ta collection d'articles
 collections:
   - name: "blog"
-    label: "Articles de Blog"
-    folder: "blog/posts" # C'est ici que les fichiers .md seront créés
-    create: true # Autorise la création de nouveaux articles
+    label: "Articles du Jardin"
+    [cite_start]folder: "blog/posts" # Dossier que tu as déjà créé [cite: 175]
+    create: true # Autorise la création de nouveaux fichiers
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Titre de l'article", name: "title", widget: "string"}
-      - {label: "Date de publication", name: "date", widget: "datetime"}
-      - {label: "Catégorie", name: "category", widget: "select", options: ["Finance", "Audit", "Digital", "Parcours"]}
-      - {label: "Image de couverture", name: "thumbnail", widget: "image"}
-      - {label: "Résumé court", name: "description", widget: "text"}
-      - {label: "Corps de l'article", name: "body", widget: "markdown"}
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date de publication", name: "date", widget: "datetime" }
+      - { label: "Image de couverture", name: "image", widget: "image" }
+      - { label: "Résumé court", name: "description", widget: "text" }
+      - { label: "Corps de l'article", name: "body", widget: "markdown" }
