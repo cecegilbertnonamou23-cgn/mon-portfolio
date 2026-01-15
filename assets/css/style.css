@@ -1295,3 +1295,41 @@ svg.lucide {
     color: #666;
 }
 
+
+
+
+
+
+/* Style pour la fenêtre de lecture (Modale) */
+.modal-article {
+    display: none; 
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 50px 20px;
+}
+
+.modal-content {
+    background: white;
+    color: black;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-modal {
+    position: sticky;
+    top: 0; float: right;
+    font-size: 30px; cursor: pointer;
+    color: #ff4d4d;
+}
+
+#article-full-content img {
+    max-width: 100%;
+    height: auto;
+}
+
