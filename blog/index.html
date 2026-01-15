@@ -37,57 +37,64 @@
         <p>Réflexions sur mes passions et mon domaine d'étude</p>
     </section>
 
-    <section id="blog-list">
-<div id="blog-posts-container">
+    <div id="articleModal" class="modal-article">
+    <div class="modal-content">
+        <span class="close-modal" onclick="fermerArticle()">&times; Fermer</span>
+        <div id="article-full-content">
+            </div>
     </div>
-
-<div id="blog-grid" class="blog-grid">
-    <p id="loading-message">Chargement des articles du jardin...</p>
 </div>
 
 <script>
+const user = "cecegilbertnonamou23-cgn";
+const repo = "mon-portfolio";
+
 async function afficherArticles() {
     const container = document.getElementById('blog-grid');
-    // Voici tes identifiants mis à jour
-    const user = "cecegilbertnonamou23-cgn"; 
-    const repo = "mon-portfolio";
-
     try {
-        // Connexion à l'API GitHub pour lire le dossier des articles
         const response = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/blog/posts`);
         const files = await response.json();
+        container.innerHTML = '';
 
-        if (container) {
-            container.innerHTML = ''; // On vide le message de chargement
-
-            for (let file of files) {
-                if (file.name.endsWith('.md')) {
-                    const card = document.createElement('div');
-                    card.className = 'project-card reveal active';
-                    
-                    // Transformation du nom du fichier en titre lisible
-                    const titrePropre = file.name.replace('.md', '').replace(/-/g, ' ');
-
-                    card.innerHTML = `
-                        <div class="project-info">
-                            <h3>${titrePropre}</h3>
-                            <p>Article de mon jardin numérique.</p>
-                            <a href="${file.html_url}" target="_blank" class="btn-link">Lire l'article sur GitHub →</a>
-                        </div>
-                    `;
-                    container.appendChild(card);
-                }
+        for (let file of files) {
+            if (file.name.endsWith('.md')) {
+                const titre = file.name.replace('.md', '').replace(/-/g, ' ');
+                const card = document.createElement('div');
+                card.className = 'project-card active';
+                card.innerHTML = `
+                    <div class="project-info">
+                        <h3>${titre}</h3>
+                        <button class="btn-primary" onclick="lireArticle('${file.download_url}')">Voir plus</button>
+                    </div>
+                `;
+                container.appendChild(card);
             }
         }
-    } catch (error) {
-        console.error("Erreur :", error);
-        if (container) container.innerHTML = "<p>Aucun article trouvé pour le moment.</p>";
-    }
+    } catch (e) { container.innerHTML = "Erreur de chargement."; }
+}
+
+// FONCTION MAGIQUE : Lit le contenu du fichier .md
+async function lireArticle(url) {
+    const response = await fetch(url);
+    const texteMarkdown = await response.text();
+    
+    // On affiche la fenêtre
+    document.getElementById('articleModal').style.display = 'block';
+    
+    // On nettoie un peu le texte brut (en attendant un vrai convertisseur)
+    document.getElementById('article-full-content').innerHTML = `
+        <div style="white-space: pre-wrap; font-family: 'Inter', sans-serif; line-height: 1.6;">
+            ${texteMarkdown}
+        </div>
+    `;
+}
+
+function fermerArticle() {
+    document.getElementById('articleModal').style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', afficherArticles);
 </script>
-    </section>
 
     <section id="contact">
     <div class="contact-container">
@@ -161,6 +168,7 @@ document.addEventListener('DOMContentLoaded', afficherArticles);
 <script>lucide.createIcons();</script>
 </body>
 </html>
+
 
 
 
