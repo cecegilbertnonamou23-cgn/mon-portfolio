@@ -173,3 +173,10 @@ function generateDots() {
 // Appelle la fonction dans ton IntersectionObserver ou ton scroll
 // Par exemple, à la fin de ton script :
 generateDots();
+
+window.onpageshow = function(event) {
+    if (event.persisted) {
+        document.querySelectorAll('form').forEach(form => form.reset());
+    }
+};
+
