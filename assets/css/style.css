@@ -1040,13 +1040,13 @@ svg.lucide {
 }
 
 
-.LOGO a {
+.logo a {
     display: flex;
     align-items: center;
     text-decoration: none;
 }
 
-.LOGO-img {
+.logo-img {
     height: 50px; /* Ajuste cette valeur selon tes préférences */
     width: auto;  /* Garde les proportions de ton image */
     display: block;
@@ -1072,7 +1072,7 @@ svg.lucide {
     to { transform: translateY(0); opacity: 1; }
 }
 
-.LOGO-img {
+.logo-img {
     height: 55px; /* Taille ajustée pour la visibilité */
     width: auto;
     border-radius: 15px; /* Bords bien arrondis comme demandé */
@@ -1083,7 +1083,7 @@ svg.lucide {
 }
 
 /* L'ANIMATION DE SURPRISE AU SURVOL */
-.LOGO-img:hover {
+.logo-img:hover {
     transform: scale(1.1) rotate(-3deg); /* Surprise 2 : inclinaison dynamique */
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     filter: brightness(1.1); /* Surprise 3 : petit éclat lumineux */
@@ -1091,7 +1091,7 @@ svg.lucide {
 }
 
 /* Petit effet de "clic" */
-.LOGO-img:active {
+.logo-img:active {
     transform: scale(0.95);
 }
 
@@ -1270,11 +1270,12 @@ svg.lucide {
     margin: 0 auto 30px;
     color: #666;
 }
-.footer-container .LOGO-img img {
+.footer-container .logo-img img {
     max-width: 150px;
     height: auto;
     margin-bottom: 20px;
 }
+
 
 
 
