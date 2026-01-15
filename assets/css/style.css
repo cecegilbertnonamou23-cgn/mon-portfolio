@@ -1040,7 +1040,7 @@ svg.lucide {
 }
 
 
-.logo a {
+.LOGO a {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -1083,7 +1083,7 @@ svg.lucide {
 }
 
 /* L'ANIMATION DE SURPRISE AU SURVOL */
-.logo-img:hover {
+.LOGO-img:hover {
     transform: scale(1.1) rotate(-3deg); /* Surprise 2 : inclinaison dynamique */
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     filter: brightness(1.1); /* Surprise 3 : petit éclat lumineux */
@@ -1091,7 +1091,7 @@ svg.lucide {
 }
 
 /* Petit effet de "clic" */
-.logo-img:active {
+.LOGO-img:active {
     transform: scale(0.95);
 }
 
@@ -1275,5 +1275,6 @@ svg.lucide {
     height: auto;
     margin-bottom: 20px;
 }
+
 
 
