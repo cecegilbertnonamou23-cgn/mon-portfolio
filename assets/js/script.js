@@ -38,6 +38,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+// GESTION DU MENU MOBILE
+const menuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        
+        // Optionnel : changer l'icône burger en X (nécessite Lucide)
+        const icon = menuBtn.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+            icon.setAttribute('data-lucide', 'x');
+        } else {
+            icon.setAttribute('data-lucide', 'menu');
+        }
+        lucide.createIcons(); // On demande à Lucide de rafraîchir l'icône
+    });
+}
+
+// Fermer le menu quand on clique sur un lien (très important !)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
+
 // 3. GESTION DES MODALES DU PORTFOLIO
 const projects = {
     "Projet 01": {
