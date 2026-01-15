@@ -174,9 +174,6 @@ function generateDots() {
 // Par exemple, à la fin de ton script :
 generateDots();
 
-window.onpageshow = function(event) {
-    if (event.persisted) {
-        document.querySelectorAll('form').forEach(form => form.reset());
-    }
-};
+
+
 
