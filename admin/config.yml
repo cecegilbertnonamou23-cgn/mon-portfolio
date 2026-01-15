@@ -1,16 +1,15 @@
 backend:
-  name: github
-  repo: TON_PSEUDO_GITHUB/NOM_DE_TON_DEPOT # Exemple: Gilbert/Moi-Numerique
-  branch: main # Ou master selon ton GitHub
+  name: git-gateway
+  branch: main
 
-media_folder: "assets/images/blog" # Où seront stockées tes images d'articles
+media_folder: "assets/images/blog"
 public_folder: "/assets/images/blog"
 
 collections:
   - name: "blog"
     label: "Articles du Jardin"
-    [cite_start]folder: "blog/posts" # Dossier que tu as déjà créé [cite: 175]
-    create: true # Autorise la création de nouveaux fichiers
+    folder: "blog/posts"
+    create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Titre", name: "title", widget: "string" }
